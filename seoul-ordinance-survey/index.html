@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>서울시 조례시설 처우개선 설문조사 | 서울특별시사회복지사협회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Gowun+Batang:wght@400;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  :root {
+    --teal: #2BA7A8;
+    --teal-deep: #1F8485;
+    --teal-soft: #E8F4F4;
+    --lime: #A3CC3D;
+    --lime-soft: #F1F7DF;
+    --ink: #1A1F2C;
+    --ink-soft: #4A5260;
+    --ink-mute: #8B92A0;
+    --paper: #FAFAF7;
+    --paper-warm: #F4F2EC;
+    --line: #E5E1D8;
+    --line-soft: #EFECE3;
+    --danger: #C44545;
+    --danger-soft: #FBEAEA;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(43, 167, 168, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 100% 100%, rgba(163, 204, 61, 0.05) 0%, transparent 40%);
+  }
+
+  /* ========== HEADER ========== */
+  .top-bar {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .top-bar-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .org-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--teal);
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+  }
+
+  .org-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-family: 'Noto Serif KR', serif;
+  }
+
+  @media (max-width: 480px) {
+    .org-name {
+      font-size: 13px;
+    }
+    .org-tag {
+      font-size: 10px;
+      padding: 3px 8px;
+    }
+  }
+
+  .save-status {
+    font-size: 12px;
+    color: var(--ink-mute);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .save-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 0 3px rgba(163, 204, 61, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 24px 32px;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal-deep);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding: 6px 12px;
+    background: var(--teal-soft);
+    border-radius: 100px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--lime);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 .accent {
+    background: linear-gradient(180deg, transparent 60%, var(--lime-soft) 60%);
+    padding: 0 4px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    max-width: 680px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .hero-meta-item strong {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+  }
+
+  /* ========== PROGRESS ========== */
+  .progress-wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px 32px;
+  }
+
+  .progress-track {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .progress-step {
+    flex: 1;
+    height: 3px;
+    background: var(--line-soft);
+    border-radius: 100px;
+    transition: background 0.4s ease;
+  }
+
+  .progress-step.active { background: var(--teal); }
+  .progress-step.completed { background: var(--lime); }
+
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+
+  .progress-label {
+    flex: 1;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  .progress-label.active {
+    color: var(--teal-deep);
+    font-weight: 600;
+  }
+
+  .progress-label.completed {
+    color: var(--ink-soft);
+  }
+
+  /* ========== FORM CARD ========== */
+  .form-container {
+    max-width: 880px;
+    margin: 0 auto 64px;
+    padding: 0 24px;
+  }
+
+  .form-section {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 40px 44px;
+    box-shadow: 0 1px 0 rgba(26, 31, 44, 0.02);
+    display: none;
+    position: relative;
+  }
+
+  .form-section.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .section-number {
+    font-family: 'Gowun Batang', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title {
+    flex: 1;
+  }
+
+  .section-title h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .section-title p {
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+
+  /* ========== FIELD ========== */
+  .field {
+    margin-bottom: 28px;
+  }
+
+  .field-label {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .field-label .required {
+    color: var(--danger);
+    font-size: 13px;
+  }
+
+  .field-label .helper {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink-mute);
+    margin-left: auto;
+  }
+
+  .field-hint {
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field input[type="number"],
+  .field input[type="url"],
+  .field select,
+  .field textarea,
+  .sub-field input[type="text"],
+  .sub-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    transition: all 0.2s ease;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus,
+  .sub-field input:focus,
+  .sub-field textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(43, 167, 168, 0.1);
+  }
+
+  .field textarea,
+  .sub-field textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.7;
+  }
+
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%234A5260' stroke-width='1.5' d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .field-row { grid-template-columns: 1fr; gap: 0; }
+    .form-section { padding: 28px 22px; }
+  }
+
+  /* ========== SUB-FIELD (task cards) ========== */
+  .task-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .task-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .task-badge {
+    background: var(--ink);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+  }
+
+  .task-card-header h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .task-card .sub-field textarea,
+  .task-card .sub-field input {
+    background: #fff;
+  }
+
+  .sub-field {
+    margin-bottom: 18px;
+  }
+
+  .sub-field:last-child {
+    margin-bottom: 0;
+  }
+
+  .sub-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sub-label::before {
+    content: '';
+    width: 3px;
+    height: 12px;
+    background: var(--teal);
+    border-radius: 1px;
+  }
+
+  /* ========== FILE / URL UPLOAD ========== */
+  .basis-group {
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
+
+  .basis-clause {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .basis-sub-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: 8px;
+  }
+
+  .basis-sub-label::before {
+    content: '';
+    width: 3px;
+    height: 12px;
+    background: var(--teal);
+    border-radius: 1px;
+  }
+
+  .basis-clause input[type="text"] {
+    background: #fff;
+  }
+
+  .basis-group .upload-tabs {
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+
+  .basis-group .file-drop {
+    background: #fff;
+  }
+
+  .basis-group input[type="url"] {
+    background: #fff;
+  }
+
+  .upload-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    background: var(--paper-warm);
+    padding: 4px;
+    border-radius: 4px;
+    width: fit-content;
+  }
+
+  .upload-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .upload-tab.active {
+    background: #fff;
+    color: var(--teal-deep);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+
+  .upload-content { display: none; }
+  .upload-content.active { display: block; }
+
+  .file-drop {
+    border: 1.5px dashed var(--line);
+    border-radius: 4px;
+    padding: 28px 20px;
+    text-align: center;
+    background: var(--paper);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .file-drop:hover {
+    border-color: var(--teal);
+    background: var(--teal-soft);
+  }
+
+  .file-drop.has-file {
+    border-style: solid;
+    border-color: var(--lime);
+    background: var(--lime-soft);
+  }
+
+  .file-drop-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 10px;
+    color: var(--ink-mute);
+  }
+
+  .file-drop.has-file .file-drop-icon { color: var(--teal-deep); }
+
+  .file-drop-text {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .file-drop-text strong { color: var(--teal-deep); }
+
+  .file-name {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+
+  /* ========== NAV BUTTONS ========== */
+  .nav-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .btn {
+    padding: 13px 28px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+    margin-left: auto;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-deep);
+    border-color: var(--teal-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(43, 167, 168, 0.25);
+  }
+
+  .btn-secondary {
+    background: #fff;
+    color: var(--ink-soft);
+    border-color: var(--line);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--ink-soft);
+    color: var(--ink);
+  }
+
+  .btn-submit {
+    background: var(--teal);
+    color: #fff;
+    border-color: var(--teal);
+    margin-left: auto;
+  }
+
+  .btn-submit:hover {
+    background: var(--teal-deep);
+    border-color: var(--teal-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(43, 167, 168, 0.3);
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.7;
+  }
+
+  .footer-line {
+    width: 24px;
+    height: 2px;
+    background: var(--teal);
+    margin: 0 auto 16px;
+    border-radius: 2px;
+  }
+
+  .footer strong {
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* ========== ERROR & SUCCESS ========== */
+  .field.error input,
+  .field.error select,
+  .field.error textarea {
+    border-color: var(--danger);
+    background: var(--danger-soft);
+  }
+
+  .error-msg {
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 6px;
+    display: none;
+  }
+
+  .field.error .error-msg { display: block; }
+
+  /* ========== COMPLETE SCREEN ========== */
+  .complete-screen {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 80px 44px;
+    text-align: center;
+    display: none;
+  }
+
+  .complete-screen.active { display: block; animation: fadeIn 0.5s ease; }
+
+  .complete-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--lime-soft);
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal-deep);
+  }
+
+  .complete-screen h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .complete-screen p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    max-width: 480px;
+    margin: 0 auto 24px;
+  }
+
+  /* ========== TOAST ========== */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1000;
+  }
+
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Spinner */
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    display: none;
+  }
+
+  .btn.loading .spinner { display: inline-block; }
+  .btn.loading .btn-text { opacity: 0.7; }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <div class="logo-wrap">
+      <span class="org-tag">주관</span>
+      <strong class="org-name">서울특별시사회복지사협회 공정위원회</strong>
+    </div>
+    <div class="save-status" id="saveStatus">
+      <span class="save-dot"></span>
+      <span>자동 저장 중</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">조례시설 처우개선 실태조사</span>
+  <h1>
+    서울시 <span class="accent">조례시설의 현황과 과제</span>를<br>
+    현장의 목소리로 정리합니다
+  </h1>
+  <p class="hero-desc">
+    본 설문은 서울시 조례시설의 설치근거와 지원체계 현황을 파악하고
+    직능별 처우개선 과제를 발굴하기 위해 진행되며, 응답해 주신 내용은
+    정책 제안과 제도 개선의 근거자료로 활용됩니다.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <strong>소요 시간</strong>
+      약 15~20분
+    </div>
+    <div class="hero-meta-item">
+      <strong>응답 대상</strong>
+      서울시 조례시설 종사자
+    </div>
+    <div class="hero-meta-item">
+      <strong>문의</strong>
+      서울특별시사회복지사협회 공정위원회
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-track">
+    <div class="progress-step active" data-step="1"></div>
+    <div class="progress-step" data-step="2"></div>
+    <div class="progress-step" data-step="3"></div>
+    <div class="progress-step" data-step="4"></div>
+  </div>
+  <div class="progress-labels">
+    <div class="progress-label active" data-step="1">응답자 정보</div>
+    <div class="progress-label" data-step="2">시설 현황</div>
+    <div class="progress-label" data-step="3">설치근거 검토</div>
+    <div class="progress-label" data-step="4">처우개선 과제</div>
+  </div>
+</div>
+
+<!-- FORM -->
+<main class="form-container">
+
+  <!-- SECTION 1: 응답자 정보 -->
+  <section class="form-section active" data-section="1">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <div class="section-title">
+        <h2>응답자 정보</h2>
+        <p>응답 내용 확인과 추가 문의를 위해 필요한 기본 정보입니다</p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        성함 <span class="required">*</span>
+      </label>
+      <input type="text" name="name" placeholder="홍길동" required>
+      <div class="error-msg">성함을 입력해 주세요</div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        소속 <span class="required">*</span>
+        <span class="helper">기관·시설 정식 명칭</span>
+      </label>
+      <input type="text" name="org" placeholder="○○○○센터" required>
+      <div class="error-msg">소속을 입력해 주세요</div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        핸드폰 번호 <span class="required">*</span>
+      </label>
+      <input type="tel" name="phone" placeholder="010-0000-0000" required>
+      <div class="field-hint">응답 확인 및 추가 자료 요청 용도로만 사용됩니다</div>
+      <div class="error-msg">핸드폰 번호를 입력해 주세요</div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        직능구분 <span class="required">*</span>
+      </label>
+      <select name="category" required>
+        <option value="">선택해 주세요</option>
+        <option value="외국인주민센터">외국인주민센터</option>
+        <option value="1인가구지원센터">1인가구지원센터</option>
+        <option value="발달장애인평생교육센터">발달장애인평생교육센터</option>
+        <option value="50플러스센터">50플러스센터</option>
+        <option value="시립실버케어센터">시립실버케어센터</option>
+        <option value="교육복지센터">교육복지센터</option>
+        <option value="주거복지센터">주거복지센터</option>
+        <option value="뇌병변장애인 비전센터">뇌병변장애인 비전센터</option>
+        <option value="장애인권익옹호기관">장애인권익옹호기관</option>
+        <option value="전 조례시설">전 조례시설</option>
+        <option value="장애인지원주택">장애인지원주택</option>
+        <option value="장애인가족지원센터">장애인가족지원센터</option>
+        <option value="기타">기타</option>
+      </select>
+      <div class="error-msg">직능구분을 선택해 주세요</div>
+    </div>
+
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-primary" data-next>
+        <span class="btn-text">다음 단계</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- SECTION 2: 시설 현황 -->
+  <section class="form-section" data-section="2">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <div class="section-title">
+        <h2>시설 현황</h2>
+        <p>서울시 내 해당 직능 시설의 운영 현황입니다</p>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">
+          서울시 내 전체 시설 수 <span class="required">*</span>
+          <span class="helper">단위: 개소</span>
+        </label>
+        <input type="number" name="facilityCount" placeholder="0" min="0" required>
+        <div class="error-msg">시설 수를 입력해 주세요</div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          서울시 내 전체 종사자 수 <span class="required">*</span>
+          <span class="helper">단위: 명</span>
+        </label>
+        <input type="number" name="workerCount" placeholder="0" min="0" required>
+        <div class="error-msg">종사자 수를 입력해 주세요</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        서울시 내 소관부서 <span class="required">*</span>
+      </label>
+      <input type="text" name="department" placeholder="예: 복지정책실 복지기획관 ○○○○과" required>
+      <div class="error-msg">소관부서를 입력해 주세요</div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label class="field-label">
+          위탁형태 <span class="required">*</span>
+        </label>
+        <input type="text" name="entrustmentType" placeholder="예: 민간위탁, 직영 등" required>
+        <div class="error-msg">위탁형태를 입력해 주세요</div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">
+          위탁기간 <span class="required">*</span>
+        </label>
+        <input type="text" name="entrustmentPeriod" placeholder="예: 3년 (○○.○○.○○ ~ ○○.○○.○○)" required>
+        <div class="error-msg">위탁기간을 입력해 주세요</div>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-secondary" data-prev>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 13l-5-5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        이전
+      </button>
+      <button type="button" class="btn btn-primary" data-next>
+        <span class="btn-text">다음 단계</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- SECTION 3: 설치근거 검토 -->
+  <section class="form-section" data-section="3">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <div class="section-title">
+        <h2>설치근거 및 지원체계</h2>
+        <p>현행 조례·지침과 변경이 필요한 부분을 작성해 주세요</p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        설치근거 또는 지원체계 <span class="required">*</span>
+      </label>
+      <div class="field-hint">관련 조례·지침·운영규정의 조항명을 명시하고, 링크 또는 파일을 첨부해 주세요</div>
+
+      <div class="basis-group">
+        <div class="basis-clause">
+          <label class="basis-sub-label">해당 조항명</label>
+          <input type="text" name="basisClause" placeholder="예) ○○○○ 운영 및 지원에 관한 조례 제○조 (○○○○)">
+        </div>
+
+        <div class="upload-tabs">
+          <button type="button" class="upload-tab active" data-target="url-input">링크 입력</button>
+          <button type="button" class="upload-tab" data-target="file-input">파일 첨부</button>
+        </div>
+
+        <div id="url-input" class="upload-content active">
+          <input type="url" name="basisUrl" placeholder="https://...">
+        </div>
+
+        <div id="file-input" class="upload-content">
+          <label class="file-drop" id="fileDropZone">
+            <svg class="file-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+            </svg>
+            <div class="file-drop-text">
+              <strong>파일을 선택</strong>하거나 여기로 드래그하세요
+            </div>
+            <div class="field-hint" style="margin-top: 4px;">PDF, HWP, HWPX, DOCX (최대 20MB)</div>
+            <div class="file-name" id="fileName"></div>
+            <input type="file" name="basisFile" id="basisFile" accept=".pdf,.hwp,.hwpx,.docx,.doc" style="display:none;">
+          </label>
+        </div>
+      </div>
+      <div class="error-msg">조항명과 함께 링크 또는 파일을 입력해 주세요</div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">
+        변경하고자 하는 부분 <span class="required">*</span>
+      </label>
+      <div class="field-hint">위 설치근거 또는 지원체계에서 개정·보완이 필요하다고 판단하는 내용을 구체적으로 작성해 주세요</div>
+      <textarea name="changeRequest" rows="6" placeholder="조항·항목 또는 운영 영역을 명시하여 작성해 주시면 좋습니다.&#10;&#10;예) 제○조 ○○항의 종사자 처우 관련 규정이 현장 실정과 맞지 않아..." required></textarea>
+      <div class="error-msg">변경하고자 하는 부분을 입력해 주세요</div>
+    </div>
+
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-secondary" data-prev>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 13l-5-5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        이전
+      </button>
+      <button type="button" class="btn btn-primary" data-next>
+        <span class="btn-text">다음 단계</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- SECTION 4: 처우개선 과제 -->
+  <section class="form-section" data-section="4">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <div class="section-title">
+        <h2>직능별 처우개선 과제</h2>
+        <p>현장에서 해결되어야 할 과제를 두 가지 제안해 주세요</p>
+      </div>
+    </div>
+
+    <!-- 과제 1 -->
+    <div class="task-card">
+      <div class="task-card-header">
+        <span class="task-badge">과제 1</span>
+        <h3>직능별 처우개선 과제</h3>
+      </div>
+
+      <div class="sub-field">
+        <div class="sub-label">필요성</div>
+        <textarea name="task1_need" rows="4" placeholder="왜 이 과제가 필요한지 — 배경과 당위성을 작성해 주세요"></textarea>
+      </div>
+
+      <div class="sub-field">
+        <div class="sub-label">현황 및 문제점</div>
+        <textarea name="task1_current" rows="4" placeholder="현재 어떤 상황이며 어떤 문제가 발생하고 있는지 — 구체적인 사례·수치가 있으면 함께 적어주세요"></textarea>
+      </div>
+
+      <div class="sub-field">
+        <div class="sub-label">정책대안</div>
+        <textarea name="task1_solution" rows="4" placeholder="제도·예산·운영 측면에서 어떤 변화가 필요한지 — 실행 가능한 대안을 제안해 주세요"></textarea>
+      </div>
+    </div>
+
+    <!-- 과제 2 -->
+    <div class="task-card">
+      <div class="task-card-header">
+        <span class="task-badge">과제 2</span>
+        <h3>직능별 처우개선 과제</h3>
+      </div>
+
+      <div class="sub-field">
+        <div class="sub-label">필요성</div>
+        <textarea name="task2_need" rows="4" placeholder="왜 이 과제가 필요한지 — 배경과 당위성을 작성해 주세요"></textarea>
+      </div>
+
+      <div class="sub-field">
+        <div class="sub-label">현황 및 문제점</div>
+        <textarea name="task2_current" rows="4" placeholder="현재 어떤 상황이며 어떤 문제가 발생하고 있는지 — 구체적인 사례·수치가 있으면 함께 적어주세요"></textarea>
+      </div>
+
+      <div class="sub-field">
+        <div class="sub-label">정책대안</div>
+        <textarea name="task2_solution" rows="4" placeholder="제도·예산·운영 측면에서 어떤 변화가 필요한지 — 실행 가능한 대안을 제안해 주세요"></textarea>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-secondary" data-prev>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 13l-5-5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        이전
+      </button>
+      <button type="button" class="btn btn-submit" id="submitBtn">
+        <span class="spinner"></span>
+        <span class="btn-text">응답 제출하기</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- COMPLETE -->
+  <section class="complete-screen" id="completeScreen">
+    <div class="complete-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2>응답이 제출되었습니다</h2>
+    <p>
+      소중한 의견을 보내주셔서 감사합니다.<br>
+      응답해 주신 내용은 서울시 조례시설 처우개선 정책 제안의<br>
+      근거자료로 활용하겠습니다.
+    </p>
+    <div class="footer-line"></div>
+    <p style="font-size: 13px;">
+      <strong>서울특별시사회복지사협회 공정위원회</strong>
+    </p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-line"></div>
+  본 설문은 <strong>서울특별시사회복지사협회 공정위원회</strong>에서 진행하며,<br>
+  수집된 정보는 처우개선 정책 제안 목적 외에는 활용되지 않습니다.<br>
+  <br>
+  ⓒ 서울특별시사회복지사협회 · Seoul Association of Social Workers
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ⚠️ 설정 파일 - 배포 전 config.js를 본인 환경에 맞게 수정하세요 -->
+<script src="config.js"></script>
+<script>
+  // ============================================
+  //  Configuration
+  //  ⚠️ 설정값은 config.js 파일에서 변경하세요.
+  // ============================================
+  const SHEET_ID = window.SURVEY_CONFIG?.SHEET_ID || '';
+  const SUBMIT_URL = window.SURVEY_CONFIG?.SUBMIT_URL || '';
+
+  const STORAGE_KEY = 'seoul_ordinance_survey_draft_v1';
+
+  // 설정 누락 진단
+  if (!window.SURVEY_CONFIG) {
+    console.error('❌❌❌ config.js 파일을 찾을 수 없습니다!');
+    console.error('해결방법:');
+    console.error('1. config.example.js를 복사해서 config.js를 만드세요');
+    console.error('2. config.js에 본인의 Apps Script URL을 입력하세요');
+    console.error('3. 호스팅 환경(Vercel/Netlify 등)에 config.js를 함께 업로드하세요');
+  } else if (!SUBMIT_URL || SUBMIT_URL.includes('여기에')) {
+    console.error('❌ config.js의 SUBMIT_URL이 설정되지 않았습니다.');
+    console.error('Apps Script 배포 후 받은 URL을 config.js에 입력하세요.');
+  } else {
+    console.log('✅ 설정 로드 완료. SUBMIT_URL:', SUBMIT_URL);
+  }
+
+  // ============================================
+  //  State
+  // ============================================
+  let currentSection = 1;
+  const totalSections = 4;
+
+  // ============================================
+  //  Section Navigation
+  // ============================================
+  function showSection(n) {
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.querySelector(`.form-section[data-section="${n}"]`).classList.add('active');
+
+    document.querySelectorAll('.progress-step').forEach(step => {
+      const stepNum = parseInt(step.dataset.step);
+      step.classList.remove('active', 'completed');
+      if (stepNum < n) step.classList.add('completed');
+      else if (stepNum === n) step.classList.add('active');
+    });
+
+    document.querySelectorAll('.progress-label').forEach(label => {
+      const stepNum = parseInt(label.dataset.step);
+      label.classList.remove('active', 'completed');
+      if (stepNum < n) label.classList.add('completed');
+      else if (stepNum === n) label.classList.add('active');
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    currentSection = n;
+  }
+
+  function validateSection(n) {
+    const section = document.querySelector(`.form-section[data-section="${n}"]`);
+    const requiredFields = section.querySelectorAll('[required]');
+    let valid = true;
+
+    requiredFields.forEach(field => {
+      const fieldEl = field.closest('.field');
+      if (!field.value.trim()) {
+        fieldEl?.classList.add('error');
+        valid = false;
+      } else {
+        fieldEl?.classList.remove('error');
+      }
+    });
+
+    // Section 3: 조항명 + (링크 또는 파일 중 하나)
+    if (n === 3) {
+      const clause = section.querySelector('[name="basisClause"]').value.trim();
+      const url = section.querySelector('[name="basisUrl"]').value.trim();
+      const file = section.querySelector('[name="basisFile"]').files[0];
+      const fieldEl = section.querySelector('[name="basisClause"]').closest('.field');
+
+      if (!clause || (!url && !file)) {
+        fieldEl.classList.add('error');
+        valid = false;
+      } else {
+        fieldEl.classList.remove('error');
+      }
+    }
+
+    if (!valid) {
+      showToast('필수 항목을 모두 입력해 주세요');
+    }
+    return valid;
+  }
+
+  document.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (validateSection(currentSection)) {
+        showSection(currentSection + 1);
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-prev]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showSection(currentSection - 1);
+    });
+  });
+
+  // ============================================
+  //  Upload Tabs
+  // ============================================
+  document.querySelectorAll('.upload-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.upload-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.upload-content').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+
+  // ============================================
+  //  File Upload
+  // ============================================
+  const fileInput = document.getElementById('basisFile');
+  const fileDropZone = document.getElementById('fileDropZone');
+  const fileNameDisplay = document.getElementById('fileName');
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      fileNameDisplay.textContent = '📎 ' + file.name;
+      fileDropZone.classList.add('has-file');
+    }
+  });
+
+  // Drag & drop
+  ['dragover', 'dragenter'].forEach(evt => {
+    fileDropZone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      fileDropZone.style.borderColor = 'var(--teal)';
+      fileDropZone.style.background = 'var(--teal-soft)';
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(evt => {
+    fileDropZone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      if (!fileDropZone.classList.contains('has-file')) {
+        fileDropZone.style.borderColor = '';
+        fileDropZone.style.background = '';
+      }
+    });
+  });
+
+  fileDropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      fileInput.files = e.dataTransfer.files;
+      fileNameDisplay.textContent = '📎 ' + file.name;
+      fileDropZone.classList.add('has-file');
+    }
+  });
+
+  // ============================================
+  //  Auto-save to localStorage
+  // ============================================
+  function saveData() {
+    const data = {};
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      if (el.type !== 'file' && el.name) {
+        data[el.name] = el.value;
+      }
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    showSavedIndicator();
+  }
+
+  function loadData() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+    try {
+      const data = JSON.parse(saved);
+      Object.entries(data).forEach(([name, value]) => {
+        const el = document.querySelector(`[name="${name}"]`);
+        if (el && el.type !== 'file') el.value = value;
+      });
+    } catch (e) {}
+  }
+
+  let saveTimer;
+  function showSavedIndicator() {
+    const status = document.getElementById('saveStatus');
+    status.innerHTML = '<span class="save-dot"></span><span>저장됨</span>';
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      status.innerHTML = '<span class="save-dot"></span><span>자동 저장 중</span>';
+    }, 2000);
+  }
+
+  let debounceTimer;
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    el.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(saveData, 600);
+    });
+    el.addEventListener('change', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(saveData, 300);
+    });
+  });
+
+  loadData();
+
+  // ============================================
+  //  Toast
+  // ============================================
+  function showToast(message, duration = 2400) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), duration);
+  }
+
+  // ============================================
+  //  Submit
+  // ============================================
+  document.getElementById('submitBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('submitBtn');
+
+    // 사전 진단: SUBMIT_URL 설정 확인
+    if (!SUBMIT_URL || SUBMIT_URL.includes('여기에') || SUBMIT_URL === '') {
+      showToast('⚠️ config.js의 SUBMIT_URL이 설정되지 않았습니다', 5000);
+      console.error('❌ SUBMIT_URL이 비어있거나 설정되지 않음. config.js를 확인하세요.');
+      console.error('현재 SUBMIT_URL 값:', SUBMIT_URL);
+      return;
+    }
+
+    if (!SUBMIT_URL.startsWith('https://script.google.com/')) {
+      showToast('⚠️ SUBMIT_URL이 올바른 Apps Script URL이 아닙니다', 5000);
+      console.error('❌ SUBMIT_URL 형식 오류. https://script.google.com/macros/s/.../exec 형태여야 합니다.');
+      console.error('현재 SUBMIT_URL 값:', SUBMIT_URL);
+      return;
+    }
+
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    try {
+      // 폼 데이터 수집
+      const formData = new FormData();
+      const data = {
+        timestamp: new Date().toISOString(),
+        name: document.querySelector('[name="name"]').value,
+        org: document.querySelector('[name="org"]').value,
+        phone: document.querySelector('[name="phone"]').value,
+        category: document.querySelector('[name="category"]').value,
+        facilityCount: document.querySelector('[name="facilityCount"]').value,
+        workerCount: document.querySelector('[name="workerCount"]').value,
+        department: document.querySelector('[name="department"]').value,
+        entrustmentType: document.querySelector('[name="entrustmentType"]').value,
+        entrustmentPeriod: document.querySelector('[name="entrustmentPeriod"]').value,
+        basisClause: document.querySelector('[name="basisClause"]').value,
+        basisUrl: document.querySelector('[name="basisUrl"]').value,
+        changeRequest: document.querySelector('[name="changeRequest"]').value,
+        task1_need: document.querySelector('[name="task1_need"]').value,
+        task1_current: document.querySelector('[name="task1_current"]').value,
+        task1_solution: document.querySelector('[name="task1_solution"]').value,
+        task2_need: document.querySelector('[name="task2_need"]').value,
+        task2_current: document.querySelector('[name="task2_current"]').value,
+        task2_solution: document.querySelector('[name="task2_solution"]').value,
+      };
+
+      console.log('📤 제출 시작. URL:', SUBMIT_URL);
+      console.log('📦 전송 데이터:', data);
+
+      // 파일 처리
+      const file = document.querySelector('[name="basisFile"]').files[0];
+      if (file) {
+        console.log('📎 파일 첨부:', file.name, '(', (file.size / 1024).toFixed(1), 'KB)');
+        const fileData = await fileToBase64(file);
+        data.fileName = file.name;
+        data.fileData = fileData;
+        data.fileMimeType = file.type;
+      }
+
+      // Apps Script로 전송
+      // no-cors 모드: Apps Script와의 CORS 처리상 안전하나 응답을 읽을 수 없음
+      await fetch(SUBMIT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+
+      console.log('✅ 요청 전송 완료. 스프레드시트를 확인해 주세요.');
+      console.log('💡 만약 시트에 데이터가 없다면:');
+      console.log('   1. Apps Script 배포 시 "액세스 권한"이 "모든 사용자"인지 확인');
+      console.log('   2. Apps Script 편집기 → 실행 기록에서 에러 확인');
+
+      // 저장된 데이터 삭제
+      localStorage.removeItem(STORAGE_KEY);
+
+      // 완료 화면 표시
+      document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('completeScreen').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (err) {
+      console.error('❌ 제출 중 오류:', err);
+      console.error('상세 정보:', err.message);
+      showToast('제출 중 오류: ' + err.message, 5000);
+      btn.classList.remove('loading');
+      btn.disabled = false;
+    }
+  });
+
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Real-time validation cleanup
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    el.addEventListener('input', () => {
+      const field = el.closest('.field');
+      if (field && el.value.trim()) field.classList.remove('error');
+    });
+  });
+</script>
+
+</body>
+</html>
